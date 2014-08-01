@@ -1,0 +1,34 @@
+<div id="filterBar"
+     class="model-body"
+     ng-controller="FilterPanelCtrl">
+
+    <!-- result status filters -->
+    <span ng-repeat="group in filterGroups"
+          class="th-inline-option-group">
+
+        <!--content for each group-->
+        <div class="">
+            <span ng-repeat="filterName in group.resultStatuses">
+                <th-filter-checkbox></th-filter-checkbox>
+            </span>
+        </div>
+    </span>
+
+    <!-- classified / unclassified -->
+    <span class="th-inline-option-group">
+        <div class="">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       id="classified"
+                       ng-model="classifiedFilter"
+                       ng-click="toggleClassificationFilter(true)"> classified
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       id="unclassified"
+                       ng-model="unClassifiedFilter"
+                       ng-click="toggleClassificationFilter(false)"> un-classified
+            </label>
+        </div>
+    </span>
+</div>
