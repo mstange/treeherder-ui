@@ -13,6 +13,19 @@ treeherder.directive('thFilterCheckbox', [
     };
 }]);
 
+treeherder.directive('thResultStatusChicklet', [
+    'thResultStatusInfo',
+    function (thResultStatusInfo) {
+
+    return {
+        restrict: "E",
+        link: function(scope, element, attrs) {
+            scope.checkClass = thResultStatusInfo(scope.filterName).btnClass + "-count-classified";
+        },
+        templateUrl: 'partials/thResultStatusChicklet.html'
+    };
+}]);
+
 treeherder.directive('thWatchedRepo', [
     'ThLog',
     function (ThLog) {

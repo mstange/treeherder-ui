@@ -1,0 +1,16 @@
+<span id="filterChicklets"
+     class="btn btn-sm btn-filter-chicklets dropdown-toggle"
+     data-goggle="dropdown"
+     ng-controller="FilterPanelCtrl"
+     ng-hide="thJobFilters.isDefaults()">
+
+    <!-- result status filters -->
+    <span ng-repeat="filterName in orderedFilters">
+        <th-result-status-chicklet></th-result-status-chicklet>
+    </span>
+</span>
+<ul class="dropdown-menu" role="menu">
+    <li ng-repeat="filterName in orderedFilters">
+        <a href="" ng-click="">{{filterName}}</a>
+    </li>
+</ul>

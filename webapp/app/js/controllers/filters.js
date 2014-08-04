@@ -32,6 +32,7 @@ treeherder.controller('FilterPanelCtrl', [
         };
 
         $scope.resultStatusFilters = {};
+        $scope.orderedFilters = _.flatten(_.pluck($scope.filterGroups, "resultStatuses"));
 
         // field filters
         $scope.newFieldFilter = null;

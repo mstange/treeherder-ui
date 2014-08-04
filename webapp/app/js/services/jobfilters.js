@@ -603,9 +603,23 @@ treeherder.factory('thJobFilters', [
         return skipExclusionProfiles;
     };
 
+    /**
+     * Whether a specific field matches the default filtering
+     */
     var matchesDefaults = function(field, values) {
         $log.debug("matchesDefaults", field, values);
         return _.intersection(defaults[field].values, values).length === defaults[field].values.length;
+    };
+
+    /**
+     * Whether all filters are set to defaults.
+     */
+    var isDefaults = function() {
+        return (_.isEqual(filterKeys, _.keys(defaults)) &&
+                _.every(filters, function(value, field) {
+                    console.log("<><> isDefaults", field, value);
+                    return matchesDefaults(field, value);
+                }));
     };
 
     /**
@@ -746,6 +760,7 @@ treeherder.factory('thJobFilters', [
         getCountExcludedForRepo: getCountExcludedForRepo,
         getJobComboField: getJobComboField,
         isJobUnclassifiedFailure: isJobUnclassifiedFailure,
+        isDefaults: isDefaults,
         isSkippingExclusionProfiles: isSkippingExclusionProfiles,
         isUnclassifiedFailures: isUnclassifiedFailures,
         matchesDefaults: matchesDefaults,

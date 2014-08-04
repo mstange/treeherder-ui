@@ -1,0 +1,67 @@
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Treeherder</a>
+    </div>
+    <div class="navbar-collapse collapse th-global-navbar">
+        <!-- nav begin -->
+        <span class="nav navbar-nav">
+            <!-- 'timeline' and 'machines' currently removed from viewOption -->
+            <span class="btn-group"
+                  ng-repeat="viewOption in ['jobs']">
+                <a class="btn btn-view-nav"
+                   ng-class="{'active': (locationPath===viewOption)}"
+                   href="#/{{viewOption}}">{{viewOption}}</a>
+            </span>
+        </span>
+        <span class="navbar-right">
+            <span ng-show="user.is_staff">
+                <span class="btn btn-view-nav"
+                      ng-class="{'active': (isSheriffPanelShowing)}"
+                      ng-click="setSheriffPanelShowing(!isSheriffPanelShowing)"><span>Sheriffing</span>
+                    <i class="fa fa-caret-down lightgray"
+                       ng-hide="isSheriffPanelShowing"></i>
+                    <i class="fa fa-caret-up lightgray"
+                       ng-show="isSheriffPanelShowing"></i>
+                </span>
+            </span>
+            <span class="">
+                <span class="btn btn-view-nav"
+                      ng-class="{'active': (isRepoPanelShowing)}"
+                      ng-click="setRepoPanelShowing(!isRepoPanelShowing)"><span>Repos</span>
+                    <i class="fa fa-caret-down lightgray"
+                       ng-hide="isRepoPanelShowing"></i>
+                    <i class="fa fa-caret-up lightgray"
+                       ng-show="isRepoPanelShowing"></i>
+                </span>
+                <span class="btn btn-view-nav"
+                      ng-class="{'active': (isFilterPanelShowing)}"
+                      ng-click="setFilterPanelShowing(!isFilterPanelShowing)"><span>Filters</span>
+                    <i class="fa fa-caret-down lightgray"
+                       ng-hide="isFilterPanelShowing"></i>
+                    <i class="fa fa-caret-up lightgray"
+                       ng-show="isFilterPanelShowing"></i>
+                </span>
+                <a class="btn btn-view-nav" href="help.html" target="_blank">Help</a>
+                <span class="nav-text white th-username">{{user.email}}</span>
+                <!--TODO: change this condition to enable the settings panel-->
+                <span ng-show="false" class="btn btn-view-nav"
+                      ng-class="{'active': (isSettingsPanelShowing)}"
+                      ng-click="setSettingsPanelShowing(!isSettingsPanelShowing)"><span>Settings</span>
+                    <i class="fa fa-caret-down lightgray"
+                       ng-hide="isSettingsPanelShowing"></i>
+                    <i class="fa fa-caret-up lightgray"
+                       ng-show="isSettingsPanelShowing"></i>
+                </span>
+                <persona-buttons></persona-buttons>
+            </span>
+        </span>
+
+        </div>
+        <ng-include class="watched-repo-navbar" src="'partials/thWatchedRepoNavPanel.html'" ng-show="locationPath==='jobs'">
+        </ng-include>
+    </div>
+    <ng-include src="'partials/thSheriffPanel.html'" ng-show="isSheriffPanelShowing"></ng-include>
+    <ng-include src="'partials/thFilterPanel.html'" ng-show="isFilterPanelShowing"></ng-include>
+    <ng-include src="'partials/thFilterBar.html'"></ng-include>
+    <ng-include src="'partials/thRepoPanel.html'" ng-show="isRepoPanelShowing"></ng-include>
+</nav>

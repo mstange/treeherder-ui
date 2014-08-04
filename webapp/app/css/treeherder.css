@@ -992,7 +992,11 @@ fieldset[disabled] .btn-unclassified-failures.active {
   border-color: #e0e0e0;
 }
 
-
+.btn-filter-chicklets {
+  background-color: rgba(221, 216, 218, 0.46);
+  border-color: #a9a9a9;
+  color: white;
+}
 
 
 .btn-orange {
@@ -1025,7 +1029,6 @@ fieldset[disabled] .btn-orange.active {
 }
 
 .btn-orange-count-classified {
-  background-color: white;
   border-color: #bfbfbf;
   color: rgba(221, 102, 2, 0.56);
 }
@@ -1066,7 +1069,6 @@ fieldset[disabled] .btn-red.active {
 }
 
 .btn-red-count-classified {
-  background-color: white;
   border-color: #bfbfbf;
   color: rgba(144, 0, 0, 0.60);
 }
@@ -1174,7 +1176,6 @@ fieldset[disabled] .btn-purple.active {
 }
 
 .btn-purple-count-classified {
-  background-color: white;
   border-color: #bfbfbf;
   color: rgba(61, 2, 85, 0.50);
 }
@@ -1340,7 +1341,6 @@ fieldset[disabled] .btn-black.active {
 }
 
 .btn-black-count-classified {
-  background-color: white;
   border-color: #bfbfbf;
   color: rgba(0, 0, 0, 0.71);
 }
@@ -1403,7 +1403,6 @@ fieldset[disabled] .btn-pink.active {
 }
 
 .btn-pink-count-classified {
-  background-color: white;
   border-color: #bfbfbf;
   color: rgba(250, 115, 172, 0.63);
 }
