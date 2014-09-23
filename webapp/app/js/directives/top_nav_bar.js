@@ -22,7 +22,7 @@ treeherder.directive('thResultStatusChicklet', [
         link: function(scope, element, attrs) {
             scope.checkClass = thResultStatusInfo(scope.filterName).btnClass + "-count-classified";
         },
-        templateUrl: 'partials/thResultStatusChicklet.html'
+        templateUrl: 'partials/main/thResultStatusChicklet.html'
     };
 }]);
 
