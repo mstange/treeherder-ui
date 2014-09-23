@@ -235,6 +235,9 @@ treeherder.controller('MainCtrl', [
             $location.search({"repo": repo_name});
         };
 
+        $scope.isFilterDefaults = function() {
+            thJobFilters.isDefaults();
+        };
 
         $scope.isFilterPanelShowing = false;
         $scope.setFilterPanelShowing = function(tf) {

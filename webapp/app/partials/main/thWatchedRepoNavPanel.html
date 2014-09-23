@@ -3,7 +3,8 @@
     <div class="navbar-right">
         <span>
             <form role="search" class="form-inline">
-                <span class="resultStatusChicklets">
+                <span class="resultStatusChicklets"
+                      ng-hide="filtersAreDefaults()">
                     <ng-include src="'partials/main/thFilterChicklets.html'"></ng-include>
                 </span>
                 <span class="btn btn-sm"
