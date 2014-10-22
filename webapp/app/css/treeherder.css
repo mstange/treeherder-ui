@@ -436,6 +436,15 @@ div#bottom-panel-resizer {
     height: 4px;
 }
 
+div#pinboard-resizer {
+    display: flex;
+    flex: none;
+    -webkit-flex: none;
+    background-color: #42484F;
+    cursor: ns-resize;
+    height: 4px;
+}
+
 
 /*
  * bottom panel
@@ -738,7 +747,7 @@ ul.failure-summary-list li .btn-xs {
     margin: 2px;
     background-color: #FFFFFF;
     min-height: 60px;
-    max-height: 120px;
+    height: calc(100% - 20px);
     overflow: auto;
 }
 
@@ -755,7 +764,7 @@ ul.failure-summary-list li .btn-xs {
     margin: 2px;
     background-color: #FFFFFF;
     min-height: 60px;
-    max-height: 120px;
+    height: calc(100% - 20px);
     overflow: auto;
     color: black;
 }
@@ -780,6 +789,11 @@ ul.failure-summary-list li .btn-xs {
 
 #pinboard-classification-content {
     color: black;
+    height: calc(100% - 20px);
+}
+
+#pinboard-classification-content .form {
+    height: 100%;
 }
 
 #pinboard-classification select {
@@ -789,7 +803,7 @@ ul.failure-summary-list li .btn-xs {
 #pinboard-classification textarea {
     width: 177px;
     margin-top: 5px;
-    height: 37px;
+    height: calc(100% - 23px);
 }
 
 #pinboard-controls-close-button-container {
