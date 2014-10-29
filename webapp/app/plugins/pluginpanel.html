@@ -3,19 +3,6 @@
      resizer-height="6"
      resizer-bottom="#bottom-panel">
 </div>
-<div ng-controller="PinboardCtrl"
-     id="pinboard-panel"
-     ng-show="isPinboardVisible"
-     ng-include src="'partials/main/thPinboardPanel.html'">
-</div>
-<div id="pinboard-resizer"
-     ng-show="isPinboardVisible"
-     resizer="horizontal"
-     resizer-height="6"
-     resizer-top="#pinboard-panel"
-     resizer-bottom="#bottom-panel-content"
-     resizer-container="#bottom-panel">
-</div>
 <div id="bottom-panel-content">
   <div id="bottom-left-panel">
     <div id="bottom-left-top">
@@ -231,10 +218,10 @@
             <a href="#" prevent-default-on-left-click ng-click="togglePinboardVisibility()">
               <span ng-hide="isPinboardVisible"
                     title="Show the pinboard"
-                    class="glyphicon glyphicon-chevron-down"></span>
+                    class="glyphicon glyphicon-chevron-up"></span>
               <span ng-show="isPinboardVisible"
                     title="Hide the pinboard"
-                    class="glyphicon glyphicon-chevron-up"></span>
+                    class="glyphicon glyphicon-chevron-down"></span>
             </a>
           </li>
           <li>

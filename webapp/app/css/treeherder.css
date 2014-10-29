@@ -439,7 +439,7 @@ div#bottom-panel {
     font-size: 12px;
 
     height: 35%;
-    max-height: 35%;
+    max-height: 80%;
     flex: none;
     -webkit-flex: none;
 
@@ -647,8 +647,6 @@ ul.failure-summary-list li .btn-xs {
     margin:0;
 }
 
-/*#bottom-menu {position: absolute; right:0; width: 104px}*/
-
 .overlay{
     position:absolute;
     top: 0;
@@ -674,14 +672,6 @@ ul.failure-summary-list li .btn-xs {
     left:45%;
 }
 
-.bottom-shadowed-panel-with-pinboard {
-    height: calc(100% - 75px);
-}
-
-.bottom-shadowed-panel-without-pinboard {
-    height: calc(100% - 20px);
-}
-
 .bottom-menu-group {
     width: 98px;
     margin-bottom: 5px;
@@ -702,7 +692,7 @@ ul.failure-summary-list li .btn-xs {
  * pinboard
  */
 
-#pinboard-panel {
+#pinboard-content {
     background-color: #252C33;
     color: #EEF0F2;
     padding: 0px 5px;
@@ -716,7 +706,7 @@ ul.failure-summary-list li .btn-xs {
     -webkit-flex-flow: row;
 }
 
-#pinboard-panel .header{
+#pinboard-content .header{
     height: 18px;
 }
 

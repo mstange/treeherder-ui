@@ -28,11 +28,18 @@
                 <ng-view ></ng-view>
             </span>
         </div>
-        <div ng-controller="PluginCtrl"
-             id="bottom-panel"
-             ng-show="selectedJob"
-             ng-class="{'with-pinboard':isPinboardVisible}"
-             ng-include src="'plugins/pluginpanel.html'">
+        <div ng-controller="PluginCtrl">
+            <div ng-controller="PinboardCtrl"
+                 id="pinboard-panel"
+                 ng-show="isPinboardVisible"
+                 ng-include src="'partials/main/thPinboardPanel.html'">
+            </div>
+
+            <div id="bottom-panel"
+                 ng-show="selectedJob"
+                 ng-class="{'with-pinboard':isPinboardVisible}"
+                 ng-include src="'plugins/pluginpanel.html'">
+            </div>
         </div>
       </div>
 
