@@ -568,10 +568,11 @@ treeherder.directive('thCloneJobs', [
     var showHideJob = function(job, show) {
         if (show) {
             job[0].style.display = "inline-block";
-            job[0].className += " filter-shown";
+            job.addClass("filter-shown");
         } else {
             job[0].style.display = "none";
-            job[0].className = job[0].className.replace("filter-shown", "");
+            job.removeClass("filter-shown");
+
         }
     };
 
