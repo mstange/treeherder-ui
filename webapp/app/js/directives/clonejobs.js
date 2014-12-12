@@ -566,37 +566,30 @@ treeherder.directive('thCloneJobs', [
 
     };
     var showHideJob = function(job, show) {
-        // Note: I was using
-        //     jobEl.style.display = "inline";
-        //     jobEl.className += " filter-shown";
-        // but that didn't work reliably with the jquery selectors
-        // when it came to hiding/showing platforms and groups.  Jquery
-        // couldn't detect that I'd added or removed ``filter-shown`` in
-        // all cases.  So, while this is a bit slower, it's reliable.
         if (show) {
-            job.css("display", "inline-block");
-            job.addClass("filter-shown");
+            job[0].style.display = "inline-block";
+            job[0].className += " filter-shown";
         } else {
-            job.css("display", "none");
-            job.removeClass("filter-shown");
+            job[0].style.display = "none";
+            job[0].className = job[0].className.replace("filter-shown", "");
         }
     };
 
     var filterPlatform = function(platform) {
-        var showPlt = platform.find('.filter-shown').length !== 0;
-        var showGrp;
+        var showPlt = platform[0].getElementsByClassName('filter-shown').length !== 0;
+      var showGrp;
 
-        if (showPlt) {
-            platform.css("display", "table-row");
-            platform.find(".platform-group").each(function internalFilterGroup() {
-                var grp = $(this);
-                showGrp = grp.find('.filter-shown').length !== 0;
-                grp.css("display", showGrp? "inline": "none");
-            });
+      if (showPlt) {
+        platform[0].style.display = "table-row";
+        platform.find(".platform-group").each(function internalFilterGroup() {
+          var grp = $(this);
+          showGrp = grp[0].getElementsByClassName('filter-shown').length !== 0;
+          grp[0].style.display = showGrp ? "inline" : "none";
+        });
 
-        } else {
-            platform.css("display", "none");
-        }
+      } else {
+        platform[0].style.display = "none";
+      }
     };
 
     var getPlatformName = function(name){
