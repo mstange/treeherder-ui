@@ -568,29 +568,46 @@ treeherder.directive('thCloneJobs', [
     var showHideJob = function(job, show) {
         if (show) {
             job[0].style.display = "inline-block";
-            job.addClass("filter-shown");
         } else {
             job[0].style.display = "none";
-            job.removeClass("filter-shown");
-
         }
     };
 
     var filterPlatform = function(platform) {
-        var showPlt = platform[0].getElementsByClassName('filter-shown').length !== 0;
-      var showGrp;
+        var jobMap = ThResultSetModel.getJobMap($rootScope.repoName);
+        var jobRow = platform.find(".job-row");
+        var showPlt = false;
+        var showGrp = false;
+        var jobObj;
 
-      if (showPlt) {
-        platform[0].style.display = "table-row";
-        platform.find(".platform-group").each(function internalFilterGroup() {
-          var grp = $(this);
-          showGrp = grp[0].getElementsByClassName('filter-shown').length !== 0;
-          grp[0].style.display = showGrp ? "inline" : "none";
+        // check ungrouped jobs to see if the platform should be visible
+        jobRow.children(".job-btn").each(function internalUngroupedJob() {
+            jobObj = jobMap[this.dataset.jmkey].job_obj;
+            if (jobObj.visible) {
+                showPlt = true;
+                // we only need to find one; quit the ``each`` loop.
+                return false;
+            }
         });
 
-      } else {
-        platform[0].style.display = "none";
-      }
+        // check grouped jobs to see if the platform (and possibly group) should be visible
+        jobRow.find(".platform-group").each(function internalFilterGroup() {
+            var grp = $(this);
+            grp.find('.job-group-list .job-btn').each(function internalGroupedJob() {
+                showGrp = false;
+                jobObj = jobMap[this.dataset.jmkey].job_obj;
+                if (jobObj.visible) {
+                    showPlt = true;
+                    showGrp = true;
+                    // we only need to find one; quit the ``each`` loop.
+                    return false;
+                }
+
+            });
+            grp[0].style.display = showGrp ? "inline" : "none";
+        });
+
+        platform[0].style.display = showPlt? "table-row": "none";
     };
 
     var getPlatformName = function(name){
