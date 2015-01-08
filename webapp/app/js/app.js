@@ -47,3 +47,6 @@ treeherder.config(function($routeProvider, $httpProvider, $logProvider) {
 });
 
 var logViewer = angular.module('logViewer',['treeherder']);
+
+// the structured log viewer
+var testLog = angular.module('testLog',['treeherder']);

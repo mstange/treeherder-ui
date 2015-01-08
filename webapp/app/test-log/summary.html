@@ -1,0 +1,45 @@
+<div class="steps-data">
+
+    <div ng-repeat="line in summaryLines track by $id(line)"
+         ng-click="displayLog(line)"
+         ng-mouseover="check=(step==displayedStep)"
+         ng-mouseleave="check=false"
+         ng-class="{'lv-line-highlight': check}"
+         class="text-left pull-left lv-error-line">
+        <span class="text-left">
+            <span class="label label-default lv-line-no line-piece">
+                {{::line.line}}
+            </span>
+
+            <span class="label label-warning line-piece">
+                {{::line.status}}
+            </span>
+            <span class="line-piece">
+                {{::line.time | date : 'mediumTime'}}
+            </span>
+            <span class="line-piece">
+                <span class="lv-test-file-name"
+                      title="{{::line.test}}">
+                    {{::line.test}}
+                </span>
+                <span ng-if="line.message"
+                      class="line-text"
+                      title="{{::line.message}}">
+                    {{::line.message}}
+                </span>
+                <span ng-if="line.subtest"
+                      class="line-text"
+                      title="{{::line.subtest}}">
+                    {{::line.subtest}}
+                </span>
+            </span>
+        </span>
+    </div>
+</div>
+
+<div class="logviewer-stepbar">
+    <a target="_blank" href="{{::artifact.logurl}}">
+        <span class="glyphicon glyphicon-align-left raw-log"></span>
+        <span>open raw log</span>
+    </a>
+</div>
